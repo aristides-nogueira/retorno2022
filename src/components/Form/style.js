@@ -2,6 +2,7 @@ export default (theme) => ({
   form: {
     display: 'flex',
     flexDirection: 'column',
+    paddingBottom: theme.spacing(2),
   },
   box: {
     padding: theme.spacing(4, 5)

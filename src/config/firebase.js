@@ -8,7 +8,7 @@ const firebaseConfig = {
   storageBucket: "classroom-emails.appspot.com",
   messagingSenderId: "932392480727",
   appId: "1:932392480727:web:2c5303bf16a92a6a85a592",
-  measurementId: "G-ZERZV8Q07P"
+  measurementId: "G-ZERZV8Q07P",
 };
 firebase.initializeApp(firebaseConfig);
 

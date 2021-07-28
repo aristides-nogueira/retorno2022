@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withStyles } from '@material-ui/core';
 import style from './style';
 import { format } from 'date-fns';
@@ -17,83 +17,74 @@ const Result = ({
   classes,
   birthDate
 }) => {
-  const [ success, setSuccess ] = useState(null);
-  const [ copy, setCopy ] = useState(false);
+  const [ student, setStudent ] = useState(null);
 
-  const lowerCaseName = name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  const splitName = lowerCaseName.split(' ');
-  const relevantNames = splitName.filter((n) => ![ 'de', 'da', 'do', 'das', 'dos', 'e', '' ].includes(n));
-  const formattedName = relevantNames.map((n, i) => {
-    if (i === 0 || i === relevantNames.length - 1) {
-      return n;
-    }
+  useEffect(() => {
+    const key = `${name.toLowerCase().split(" ").join("")}${format(birthDate,'ddMyyyy')}`;
+    db.collection('retorno').doc(key).get().then((user) => {
+      setStudent(user.data());
+    })
+  }, []);
 
-    return n[0];
-  });
-  const namePart = formattedName.join('');
-  const datePart = format(new Date(birthDate), 'ddMMyyyy');
-  const studentEmail = `${namePart}.${datePart}@edu.sme.prefeitura.sp.gov.br`;
+  if (!student) {
+    return null;
+  }
+
+  const studentClass = student.week.includes('DOURADA') ? classes.gold : classes.silver;
 
   return (
     <div className={classes.result}>
-      <p>Seu email é</p>
-      <p className={classes.email}>
-        {studentEmail}
-        <CopyToClipboard text={studentEmail} onCopy={() => setCopy(true)}>
-          <FileCopyIcon className={classes.copyIcon} />
-        </CopyToClipboard>
-      </p>
-      <p>
-        e a senha inicial é
-        <span className={classes.password}>12345678 </span>
-        e precisa ser alterada no primeiro acesso.
-      </p>
-      <p>
-        <a href='https://classroom.google.com/' target='_blank'>Clique aqui para acessar o Google Classroom</a>, por favor, <br />
-        não esqueça de responder logo abaixo se você conseguiu ou não<br />
-        acessar sem problemas, para que possamos ajudar quem estiver<br />
-        com dificuldades!
-      </p>
-      <div className={classes.feedback} style={{
-        display: (success != null ? 'none' : 'inherit')
-      }}>
-        <Button
-          variant='contained'
-          className={classes.success}
-          onClick={() => {
-            setSuccess(true);
-            db.collection("contacts").add({
-              name,
-              date: datePart,
-              studentEmail,
-              success: true,
-              timestamp: new Date()
-            });
-          }}
-          startIcon={<ThumbUpIcon />}
-          >
-          Consegui!
-        </Button>
-        <Button
-          variant='contained'
-          color='secondary'
-          onClick={() => {
-            setSuccess(false);
-          }}
-          startIcon={<ThumbDownIcon />}
-        >
-          Não consegui!
-        </Button>
+      <p><b>Dados do aluno</b></p> <br />
+      Código eol do aluno: {student.code} <br />
+      Período: {student.period} <br />
+      Turma: {student.group} <br />
+      Horário de aula: {student.enterat} <br /> <br />
+
+      <p><b>Reunião presencial</b></p> <br />
+      🗓️🕒 Data e horário: {student.parentreuniondate} <br />
+      ⚠️ Atenção ⚠️: na reunião será entregue os crachás e carteirinhas pela professora e também será dada todas as orientações sobre os protocolos de saúde que deverão ser seguidos. <br />
+      <br />
+      🎒📝 Itens que devem estar na mochila da criança: <br />
+      ➡️ Caneca (copo); <br />
+      ➡️ Máscara - mínimo 3; <br />
+      ➡️ Estojo - com os materiais que foram adquiridos com o VOUCHER disponibilizado pela Prefeitura; <br />
+      ➡️ 1 troca de roupa (de acordo com a temperatura); <br />
+      ➡️ (Foi solicitado uma pasta plástica para colocar o caderno e entregar no dia da reunião para a professora.) <br />
+
+
+      <p><b>❗ O retorno da criança será com revezamento semanal. ❗</b></p> <br />
+      <div>
+        As crianças com crachá da turma <b className={classes.gold}>semana dourada</b> virão na primeira semana, as da turma <b className={classes.silver}>semana prateada</b> na segunda e assim sucessivamente.
       </div>
-      {
-        success != null &&
-        <Feedback
-          success={success}
-          inputedName={name}
-          inputedDate={datePart}
-          studentEmail={studentEmail}
-        />
-      }
+      <div>
+        <p>Sua criança está no grupo <b className={studentClass}>{student.week}</b></p>
+      </div>
+
+      Dessa forma, a criança deverá frequentar as aulas apenas nas semanas das respectivas segundas-feiras: <br />
+      <ul>
+        <li>➡️ {student['sem 1']}</li>
+        <li>➡️ {student['sem 2']}</li>
+        <li>➡️ {student['sem 3']}</li>
+        <li>➡️ {student['sem 4']}</li>
+        <li>➡️ {student['sem 5']}</li>
+        <li>➡️ {student['sem 6']}</li>
+        <li>➡️ {student['sem 7']}</li>
+        <li>➡️ {student['sem 8']}</li>
+        <li>➡️ {student['sem 9']}</li>
+        {
+          student['sem 10'] && <li>➡️ {student['sem 10']}</li>
+        }
+      </ul>
+ <br />
+      <b>Não se sente seguro no retorno?</b> <br />
+      <div>
+        O <b>retorno presencial não é obrigatório</b>, quem desejar permanecer no remoto, basta o responsável legal (mãe, pai ou quem possui a guarda) comparecer na secretaria preferencialmente das 10h às 12h ou das 14h às 16h para preencher o formulário de preferência no remoto. <br />
+      </div>
+ <br />
+ <br />
+      Qualquer dúvida, nos ligue no telefone fixo 11 5528-1873!
+      <br />
+      <br />
     </div>
   );
 }

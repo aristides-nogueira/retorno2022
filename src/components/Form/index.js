@@ -30,14 +30,17 @@ const Form = ({
       alignItems="center"
     >
       <span className={classes.initialTip}>
-        Saiba como acessar a sua sala de aula via Google classroom!
+        EMEI Aristides Nogueira - RETORNO DAS AULAS PRESENCIAIS AGOSTO 2021
       </span>
+      {
+        confirm && <Result name={name} birthDate={birthDate} />
+      }
       <div className={classes.form}>
         <Box boxShadow={3} className={classes.box}>
           {
             !confirm ?
             <>
-              <span>Descubra seu acesso:</span>
+              <span>Complete as informações abaixo:</span>
               <div className={classes.formControl}>
                 <TextField
                   label="Nome Completo do aluno"
@@ -106,9 +109,6 @@ const Form = ({
 
         </Box>
       </div>
-      {
-        confirm && <Result name={name} birthDate={birthDate} />
-      }
     </Grid>
   );
 }
