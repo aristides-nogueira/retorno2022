@@ -20,7 +20,7 @@ const Result = ({
   const [ student, setStudent ] = useState(null);
 
   useEffect(() => {
-    const key = `${name.toLowerCase().split(" ").join("")}${format(birthDate,'ddMyyyy')}`;
+    const key = `${name.toLowerCase().split(" ").join("").normalize("NFD").replace(/[\u0300-\u036f]/g, "")}${format(birthDate,'dMyyyy')}`;
     db.collection('retorno').doc(key).get().then((user) => {
       setStudent(user.data());
     })
