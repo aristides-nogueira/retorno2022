@@ -18,7 +18,7 @@ const Form = ({
   classes
 }) => {
   const [ name, setName ] = useState('');
-  const [ birthDate, setBirthDate ] = useState(new Date('2015-01-02'));
+  const [ birthDate, setBirthDate ] = useState(new Date('2016-01-02'));
   const [ confirm, setConfirm ] = useState(false);
   const [ validated, setValidated ] = useState(false);
 
@@ -30,8 +30,9 @@ const Form = ({
       alignItems="center"
     >
       <span className={classes.initialTip}>
-        EMEI Aristides Nogueira - RETORNO DAS AULAS PRESENCIAIS AGOSTO 2021
+        EMEI Aristides Nogueira - RETORNO DAS AULAS PRESENCIAIS 2022
       </span>
+      <br />
       {
         confirm && <Result name={name} birthDate={birthDate} />
       }

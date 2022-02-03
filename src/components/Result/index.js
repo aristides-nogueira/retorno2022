@@ -2,12 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { withStyles } from '@material-ui/core';
 import style from './style';
 import { format } from 'date-fns';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
-import Button from '@material-ui/core/Button';
-import ThumbUpIcon from '@material-ui/icons/ThumbUp';
-import ThumbDownIcon from '@material-ui/icons/ThumbDown';
-import Feedback from '../Feedback';
 import firebase from '../../config/firebase';
 
 const db = firebase.firestore();
@@ -21,7 +15,7 @@ const Result = ({
 
   useEffect(() => {
     const key = `${name.toLowerCase().split(" ").join("").normalize("NFD").replace(/[\u0300-\u036f]/g, "")}${format(birthDate,'dMyyyy')}`;
-    db.collection('retorno').doc(key).get().then((user) => {
+    db.collection('retorno2022').doc(key).get().then((user) => {
       setStudent(user.data());
     })
   }, []);
@@ -30,59 +24,44 @@ const Result = ({
     return null;
   }
 
-  const studentClass = student.week.includes('DOURADA') ? classes.gold : classes.silver;
-
   return (
     <div className={classes.result}>
       <p><b>Dados do aluno</b></p> <br />
       Código eol do aluno: {student.code} <br />
       Período: {student.period} <br />
       Turma: {student.group} <br />
-      Horário de aula: {student.enterat} <br /> <br />
+      Sala: {student.sala} <br />
+      Horário de aula: {student.enterat} <br />
+      Professora(s): {student.teachers} <br /> <br />
 
-      <p><b>Reunião presencial</b></p> <br />
+      <p><b>Olá, família!!!</b></p> <br />
+      <p>Mais um ano se inicia!! Nossa equipe  deseja boas vindas a todos!!</p> <br />
+      <p>As aulas já  vão  começar, mas primeiro precisamos passar algumas informações sobre o nosso trabalho, sobre a rotina, organização, informes gerais e conversar sobre os  protocolos de saúde.</p> <br />
+      <p>Então, marcamos uma reunião aqui na unidade com as famílias.</p> <br />
+
       🗓️🕒 Data e horário: {student.parentreuniondate} <br />
-      ⚠️ Atenção ⚠️: na reunião será entregue os crachás e carteirinhas pela professora e também será dada todas as orientações sobre os protocolos de saúde que deverão ser seguidos. <br />
+      ⚠️ Atenção ⚠️: Também  faremos a entrega do crachá  de identificação e de saída. <br />
       <br />
+      <p>Sua presença é muito importante!!!</p> <br />
+      <p>Obs: Ainda estamos em pandemia.</p> <br />
+      <p>Compareça a unidade apenas um adulto por criança. </p> <br />
+      <p>Não esquecer a máscara.</p> <br />
+
       🎒📝 Itens que devem estar na mochila da criança: <br />
       ➡️ Caneca (copo); <br />
       ➡️ Máscara - mínimo 3; <br />
-      ➡️ Estojo - com os materiais que foram adquiridos com o VOUCHER disponibilizado pela Prefeitura; <br />
+      ➡️ Estojo - para os materiais que serão adquiridos com o VOUCHER disponibilizado pela Prefeitura (A escola ainda está aguardando mais informações da Prefeitura, para a aquisição dos itens em 2022); <br />
       ➡️ 1 troca de roupa (de acordo com a temperatura); <br />
       ➡️ (Foi solicitado uma pasta plástica para colocar o caderno e entregar no dia da reunião para a professora.) <br />
 
+      <p><b>Lembre-se:</b></p> <br />
+      <div>
+        Solicitamos gentilmente para que sempre mantenha os números de telefone atualizados conosco e o número da escola (11) 5528-1873 sempre salvo na agenda dos celulares da família, para que possa receber os recados em nossa lista de transmissão.
+      </div>
+      <div>
+        <p><b>‼️ ATENÇÃO ‼️ Se não salvar o número na agenda do celular, não receberá os comunicados.</b></p>
+      </div>
 
-      <p><b>❗ O retorno da criança será com revezamento semanal. ❗</b></p> <br />
-      <div>
-        As crianças com crachá da turma <b className={classes.gold}>semana dourada</b> virão na primeira semana, as da turma <b className={classes.silver}>semana prateada</b> na segunda e assim sucessivamente.
-      </div>
-      <div>
-        <p>Sua criança está no grupo <b className={studentClass}>{student.week}</b></p>
-      </div>
-
-      Dessa forma, a criança deverá frequentar as aulas apenas nas semanas das respectivas segundas-feiras: <br />
-      <ul>
-        <li>➡️ {student['sem 1']}</li>
-        <li>➡️ {student['sem 2']}</li>
-        <li>➡️ {student['sem 3']}</li>
-        <li>➡️ {student['sem 4']}</li>
-        <li>➡️ {student['sem 5']}</li>
-        <li>➡️ {student['sem 6']}</li>
-        <li>➡️ {student['sem 7']}</li>
-        <li>➡️ {student['sem 8']}</li>
-        <li>➡️ {student['sem 9']}</li>
-        {
-          student['sem 10'] && <li>➡️ {student['sem 10']}</li>
-        }
-      </ul>
- <br />
-      <b>Não se sente seguro no retorno?</b> <br />
-      <div>
-        O <b>retorno presencial não é obrigatório</b>, quem desejar permanecer no remoto, basta o responsável legal (mãe, pai ou quem possui a guarda) comparecer na secretaria preferencialmente das 10h às 12h ou das 14h às 16h para preencher o formulário de preferência no remoto. <br />
-      </div>
- <br />
- <br />
-      Qualquer dúvida, nos ligue no telefone fixo 11 5528-1873!
       <br />
       <br />
     </div>
