@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "836d3756acb50e957146732524a8ec37",
+    "revision": "47c41fef70549971417b0424cb350bc5",
     "url": "/retorno2022/index.html"
   },
   {
-    "revision": "f8fe11ad07069cea686a",
+    "revision": "e9b4793466608ab12966",
     "url": "/retorno2022/static/css/main.5f361e03.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/retorno2022/static/js/2.4d9fd46b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f8fe11ad07069cea686a",
-    "url": "/retorno2022/static/js/main.2126b2a2.chunk.js"
+    "revision": "e9b4793466608ab12966",
+    "url": "/retorno2022/static/js/main.2633ff1f.chunk.js"
   },
   {
     "revision": "ac14c49b6234aeeb4a40",

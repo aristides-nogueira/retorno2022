@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/retorno2022/static/css/main.5f361e03.chunk.css",
-    "main.js": "/retorno2022/static/js/main.2126b2a2.chunk.js",
-    "main.js.map": "/retorno2022/static/js/main.2126b2a2.chunk.js.map",
+    "main.js": "/retorno2022/static/js/main.2633ff1f.chunk.js",
+    "main.js.map": "/retorno2022/static/js/main.2633ff1f.chunk.js.map",
     "runtime-main.js": "/retorno2022/static/js/runtime-main.65f5de51.js",
     "runtime-main.js.map": "/retorno2022/static/js/runtime-main.65f5de51.js.map",
     "static/js/2.4d9fd46b.chunk.js": "/retorno2022/static/js/2.4d9fd46b.chunk.js",
     "static/js/2.4d9fd46b.chunk.js.map": "/retorno2022/static/js/2.4d9fd46b.chunk.js.map",
     "index.html": "/retorno2022/index.html",
-    "precache-manifest.28404091e5d34b2dda962f38c8433334.js": "/retorno2022/precache-manifest.28404091e5d34b2dda962f38c8433334.js",
+    "precache-manifest.586c169e9d27dd4d4a4c6dc3ec79aa3d.js": "/retorno2022/precache-manifest.586c169e9d27dd4d4a4c6dc3ec79aa3d.js",
     "service-worker.js": "/retorno2022/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/retorno2022/static/css/main.5f361e03.chunk.css.map",
     "static/js/2.4d9fd46b.chunk.js.LICENSE.txt": "/retorno2022/static/js/2.4d9fd46b.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.65f5de51.js",
     "static/js/2.4d9fd46b.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.2126b2a2.chunk.js"
+    "static/js/main.2633ff1f.chunk.js"
   ]
 }
