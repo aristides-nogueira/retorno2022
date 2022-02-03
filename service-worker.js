@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/retorno2022/precache-manifest.29a2059fe4e31f6ccb810f487d3ff750.js"
+  "/retorno2022/precache-manifest.28404091e5d34b2dda962f38c8433334.js"
 );
 
 self.addEventListener('message', (event) => {
