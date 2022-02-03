@@ -10,7 +10,7 @@ const Header = ({
     <div style={{ paddingBottom: 20 }}>
       <AppBar position="static">
         <Toolbar>
-          EMEI Aristides Nogueira - RETORNO DAS AULAS PRESENCIAIS AGOSTO 2021
+          EMEI Aristides Nogueira - RETORNO DAS AULAS PRESENCIAIS 2022
         </Toolbar>
       </AppBar>
     </div>

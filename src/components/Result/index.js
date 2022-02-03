@@ -15,7 +15,8 @@ const Result = ({
 
   useEffect(() => {
     const key = `${name.toLowerCase().split(" ").join("").normalize("NFD").replace(/[\u0300-\u036f]/g, "")}${format(birthDate,'dMyyyy')}`;
-    db.collection('retorno2022').doc(key).get().then((user) => {
+    console.log(key);
+    db.collection('retorno').doc(key).get().then((user) => {
       setStudent(user.data());
     })
   }, []);
@@ -27,12 +28,13 @@ const Result = ({
   return (
     <div className={classes.result}>
       <p><b>Dados do aluno</b></p> <br />
-      Código eol do aluno: {student.code} <br />
-      Período: {student.period} <br />
-      Turma: {student.group} <br />
-      Sala: {student.sala} <br />
-      Horário de aula: {student.enterat} <br />
-      Professora(s): {student.teachers} <br /> <br />
+      <div style={{ display: 'flex' }}><b style={{ paddingRight: 10 }}>Nome:</b> {student.name} </div><br />
+      <div style={{ display: 'flex' }}><b style={{ paddingRight: 10 }}>Código eol do aluno:</b> {student.code} </div><br />
+      <div style={{ display: 'flex' }}><b style={{ paddingRight: 10 }}>Período:</b> {student.period} </div><br />
+      <div style={{ display: 'flex' }}><b style={{ paddingRight: 10 }}>Turma:</b> {student.group} </div><br />
+      <div style={{ display: 'flex' }}><b style={{ paddingRight: 10 }}>Sala:</b> {student.sala} </div><br />
+      <div style={{ display: 'flex' }}><b style={{ paddingRight: 10 }}>Horário de aula:</b> {student.enterat} </div><br />
+      <div style={{ display: 'flex' }}><b style={{ paddingRight: 10 }}>Professora(s):</b> {student.teachers} </div><br /> <br />
 
       <p><b>Olá, família!!!</b></p> <br />
       <p>Mais um ano se inicia!! Nossa equipe  deseja boas vindas a todos!!</p> <br />
