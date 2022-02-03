@@ -16,7 +16,7 @@ const Result = ({
   useEffect(() => {
     const key = `${name.toLowerCase().split(" ").join("").normalize("NFD").replace(/[\u0300-\u036f]/g, "")}${format(birthDate,'dMyyyy')}`;
     console.log(key);
-    db.collection('retorno').doc(key).get().then((user) => {
+    db.collection('retorno2022').doc(key).get().then((user) => {
       setStudent(user.data());
     })
   }, []);
