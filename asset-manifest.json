@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/retorno2022/static/css/main.5f361e03.chunk.css",
-    "main.js": "/retorno2022/static/js/main.e0df9d25.chunk.js",
-    "main.js.map": "/retorno2022/static/js/main.e0df9d25.chunk.js.map",
+    "main.js": "/retorno2022/static/js/main.80a30623.chunk.js",
+    "main.js.map": "/retorno2022/static/js/main.80a30623.chunk.js.map",
     "runtime-main.js": "/retorno2022/static/js/runtime-main.65f5de51.js",
     "runtime-main.js.map": "/retorno2022/static/js/runtime-main.65f5de51.js.map",
-    "static/js/2.957054e6.chunk.js": "/retorno2022/static/js/2.957054e6.chunk.js",
-    "static/js/2.957054e6.chunk.js.map": "/retorno2022/static/js/2.957054e6.chunk.js.map",
+    "static/js/2.4d9fd46b.chunk.js": "/retorno2022/static/js/2.4d9fd46b.chunk.js",
+    "static/js/2.4d9fd46b.chunk.js.map": "/retorno2022/static/js/2.4d9fd46b.chunk.js.map",
     "index.html": "/retorno2022/index.html",
-    "precache-manifest.e93b9cf807737cf6a19d428361ee8cff.js": "/retorno2022/precache-manifest.e93b9cf807737cf6a19d428361ee8cff.js",
+    "precache-manifest.f4c503879f563edb3aea8475bffc2c60.js": "/retorno2022/precache-manifest.f4c503879f563edb3aea8475bffc2c60.js",
     "service-worker.js": "/retorno2022/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/retorno2022/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.957054e6.chunk.js.LICENSE.txt": "/retorno2022/static/js/2.957054e6.chunk.js.LICENSE.txt"
+    "static/js/2.4d9fd46b.chunk.js.LICENSE.txt": "/retorno2022/static/js/2.4d9fd46b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.65f5de51.js",
-    "static/js/2.957054e6.chunk.js",
+    "static/js/2.4d9fd46b.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.e0df9d25.chunk.js"
+    "static/js/main.80a30623.chunk.js"
   ]
 }
