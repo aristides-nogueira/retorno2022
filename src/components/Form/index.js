@@ -18,7 +18,7 @@ const Form = ({
   classes
 }) => {
   const [ name, setName ] = useState('');
-  const [ birthDate, setBirthDate ] = useState(new Date('2016-01-02'));
+  const [ birthDate, setBirthDate ] = useState(new Date('2017-01-02'));
   const [ confirm, setConfirm ] = useState(false);
   const [ validated, setValidated ] = useState(false);
 

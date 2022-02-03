@@ -27,9 +27,9 @@ const Result = ({
 
   return (
     <div className={classes.result}>
-      <p><b>Dados do aluno</b></p> <br />
+      <p><b>Dados do aluno(a)</b></p> <br />
       <div style={{ display: 'flex' }}><b style={{ paddingRight: 10 }}>Nome:</b> {student.name} </div><br />
-      <div style={{ display: 'flex' }}><b style={{ paddingRight: 10 }}>Código eol do aluno:</b> {student.code} </div><br />
+      <div style={{ display: 'flex' }}><b style={{ paddingRight: 10 }}>Código eol do aluno(a):</b> {student.code} </div><br />
       <div style={{ display: 'flex' }}><b style={{ paddingRight: 10 }}>Período:</b> {student.period} </div><br />
       <div style={{ display: 'flex' }}><b style={{ paddingRight: 10 }}>Turma:</b> {student.group} </div><br />
       <div style={{ display: 'flex' }}><b style={{ paddingRight: 10 }}>Sala:</b> {student.sala} </div><br />
@@ -54,7 +54,6 @@ const Result = ({
       ➡️ Máscara - mínimo 3; <br />
       ➡️ Estojo - para os materiais que serão adquiridos com o VOUCHER disponibilizado pela Prefeitura (A escola ainda está aguardando mais informações da Prefeitura, para a aquisição dos itens em 2022); <br />
       ➡️ 1 troca de roupa (de acordo com a temperatura); <br />
-      ➡️ (Foi solicitado uma pasta plástica para colocar o caderno e entregar no dia da reunião para a professora.) <br />
 
       <p><b>Lembre-se:</b></p> <br />
       <div>
